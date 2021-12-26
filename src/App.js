@@ -3,6 +3,7 @@ import FormInput from './components/FormInput/FormInput';
 import { nanoid } from 'nanoid';
 import ContactsList from './components/ContactsList/ContactsList';
 import Filter from './components/Filter/Filter';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -44,8 +45,8 @@ class App extends Component {
     const { contacts, filter } = this.state;
     return (
       <>
-        <FormInput onSubmit={this.FormSubmitHendler} />
         <h1>Phone Book</h1>
+        <FormInput onSubmit={this.FormSubmitHendler} />
         <h2>Contacts</h2>
         {contacts.length > 1 && <Filter value={filter} onChangeFilter={this.changeFilter} />}
         <ContactsList onRemoveContact={this.removeContact} contacts={this.getFilteredContacts()} />

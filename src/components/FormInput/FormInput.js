@@ -40,7 +40,8 @@ class FormInput extends Component {
             onChange={this.hendleInputChange}
           />
         </lebel>
-        <label>
+        <br />
+        <lebel>
           Phone
           <input
             type="tel"
@@ -51,8 +52,8 @@ class FormInput extends Component {
             value={this.state.phone}
             onChange={this.hendleInputChange}
           />
-        </label>
-
+        </lebel>
+        <br />
         <button type="submit">Save</button>
       </form>
     );
