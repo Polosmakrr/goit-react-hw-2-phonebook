@@ -40,6 +40,30 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    // console.log('component Mount');
+
+    const contacts = localStorage.getItem('Contacts');
+    const parsContacts = JSON.parse(contacts);
+    // console.log(contacts);
+    // console.log(parsContacts);
+    if (parsContacts) {
+      this.setState({ contacts: parsContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log('component update');
+
+    // console.log('prevState:', prevState);
+    // console.log('this.state:', this.state);
+
+    if (this.state.contacts != prevState.contacts) {
+      // console.log('refresh stste');
+      localStorage.setItem('Contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   render() {
     const { contacts, filter } = this.state;
     return (
